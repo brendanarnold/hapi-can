@@ -1,0 +1,19 @@
+{
+  "name": "hapi-can",
+  "version": "1.0.0",
+  "description": "",
+  "main": "./lib/index.js",
+  "directories": {
+    "example": "example",
+    "lib": "lib"
+  },
+  "scripts": {
+    "test": "lab -v ./tests"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "hapi": "^17.8.1",
+    "lab": "^18.0.0"
+  }
+}
