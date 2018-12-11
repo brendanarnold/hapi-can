@@ -121,11 +121,11 @@ const data = {
 ```
 
 Requirements:
-- Familiar syntax to Hapi developers
-- Multi layered fetching e.g. from cache, then database
-- Can invalidate each layer programatically
-- Last for the lifespan of a request or the app lifespan
-- Work well with plugins, can be private to plugin or made accessible throughout app
-- Testable
-- Can be modified later by wrappers
-- Works with auto complete
+  - Familiar syntax to Hapi developers
+  - Multi layered fetching e.g. from cache, then database
+  - Can invalidate each layer programatically
+  - Last for the lifespan of a request or the app lifespan
+  - Work well with plugins, can be private to plugin or made accessible throughout app
+  - Testable
+  - Can be modified later by wrappers
+  - Works with auto complete

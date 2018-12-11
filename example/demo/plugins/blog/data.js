@@ -1,18 +1,24 @@
+
 const Can = require('hapi-can')
 
 const data = {
-  permissions: Symbol('permissions')
+  posts: Symbol('posts'),
+  user: Symbol('user')
 }
 
 const repositoryItems = [
   {
-    name: data.permissions,
+    name: posts,
     lifespan: Can.lifespan.request,
     fetch: async ({ request, h }) => {
-      // Fake a request
-      return new Promise((resolve, reject) => {
-        setTimeout(() => { resolve('admin') })
-      })
+
+    }
+  },
+  {
+    name: user,
+    lifespan: Can.lifespan.request,
+    fetch: async ({ request, h }) => {
+      
     }
   }
 ]

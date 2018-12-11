@@ -1,18 +1,16 @@
 const Hapi = require('hapi')
 
+const blog = require('./plugins/blog')
+const admin = require('./plugins/admin')
+
 const server = Hapi.server({
   host: 'localhost',
   port: 8000
 })
 
-server.route([
-  {
-    method: 'get',
-    path: '/',
-    handler: async (request, h) => {
-      return 'Hello demo'
-    }
-  }
+await server.register([
+  blog.plugin,
+  admin.plugin
 ])
 
 const start = async () => {
