@@ -8,12 +8,15 @@
     "lib": "lib"
   },
   "scripts": {
-    "test": "lab -v ./tests"
+    "test": "lab -v ./test"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
     "hapi": "^17.8.1",
     "lab": "^18.0.0"
+  },
+  "devDependencies": {
+    "code": "^5.2.4"
   }
 }
