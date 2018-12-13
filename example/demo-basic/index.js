@@ -16,9 +16,9 @@ const start = async () => {
     method: 'GET',
     path: '/',
     handler: async (request, h) => {
-      const greeting = await Can.from(request, h).get(item.greeting)
-      const question = await Can.from(request, h).get(item.question)
-      const user = await Can.from(request, h).get(item.user)
+      const greeting = await Can.from(request).get(item.greeting)
+      const question = await Can.from(request).get(item.question)
+      const user = await Can.from(request).get(item.user)
       return `${greeting}, ${question} (Logged in as ${user})`
     }
   })

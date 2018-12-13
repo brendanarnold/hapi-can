@@ -10,14 +10,14 @@ const data = {
   {
     name: data.token,
     lifespan: lifespan.request,
-    fetch: async ({ request }) => {
+    fetch: async ({ request, h }) => {
       return activeDirectory.getToken()
     }
   },
   {
     name: data.user,
     lifespan: lifespan.request,
-    fetch: async ({ request }, query) => {
+    fetch: async ({ request, h }, query) => {
       const token = await Can.from(request).get(data.token)
       return dynamics.readContact(token, query)
     }
@@ -45,14 +45,14 @@ const data = {
   {
     name: data.token,
     lifespan: Can.lifespan.request,
-    fetch: async ({ request }) => {
+    fetch: async ({ request, h }) => {
       return activeDirectory.getToken()
     }
   },
   {
     name: data.user,
     lifespan: Can.lifespan.request,
-    fetch: async ({ request }, query) => {
+    fetch: async ({ request, h }, query) => {
       return await Can.from(request).get(data.session.user, query)
         || await Can.from(request).get(data.database.user, query)
     }
@@ -60,14 +60,14 @@ const data = {
   {
     name: data.session.user,
     lifespan: Can.lifespan.request,
-    fetch: async ({ request }, query) => {
+    fetch: async ({ request, h }, query) => {
       return mongodb.fetch(query)
     }
   },
   {
     name: data.database.user,
     lifespan: Can.lifespan.request,
-    fetch: async ({ request }, query) => {
+    fetch: async ({ request, h }, query) => {
       const token = await Can.from(request).get(data.token)
       return dynamics.readContact(token, query)
     }

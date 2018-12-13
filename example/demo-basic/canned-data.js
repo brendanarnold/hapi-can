@@ -20,7 +20,7 @@ const cannedItems = [
     name: item.greeting,
     lifespan: Can.lifespan.request,
     fetch: async ({ request, h }) => {
-      const user = await Can.from(request, h).get(item.user)
+      const user = await Can.from(request).get(item.user)
       return myService.getGreeting(user)
     }
   },
@@ -28,7 +28,7 @@ const cannedItems = [
     name: item.question,
     lifespan: Can.lifespan.request,
     fetch: async ({ request, h }) => {
-      const user = await Can.from(request, h).get(item.user)
+      const user = await Can.from(request).get(item.user)
       return myService.getQuestion(user)
     }
   }
