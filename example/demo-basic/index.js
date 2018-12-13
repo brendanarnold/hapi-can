@@ -23,7 +23,12 @@ const start = async () => {
     }
   })
 
-  await server.register(Can, {})
+  await server.register({
+    plugin: Can.plugin, 
+    options: {
+      disableCache: false
+    }
+  })
   Can.register(cannedItems)
 
   try {
