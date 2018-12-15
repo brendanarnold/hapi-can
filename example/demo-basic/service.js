@@ -8,7 +8,7 @@ const myService = {
   }),
   getQuestion: async (user) => new Promise(resolve => {
     setTimeout(() => { resolve(`I hope you are well ${user}?`) }, 1000)
-  }),
+  })
 }
 
 module.exports = myService
