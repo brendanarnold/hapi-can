@@ -1,11 +1,11 @@
 
 const Can = require('hapi-can')
-const myService = require('./service')
+const service = require('./service')
 
 const item = {
   user: Symbol('user'),
-  greeting: Symbol('greeting'),
-  question: Symbol('question')
+  toy: Symbol('toy'),
+  food: Symbol('food')
 }
 
 const cannedItems = [
@@ -13,23 +13,23 @@ const cannedItems = [
     name: item.user,
     lifespan: Can.lifespan.request,
     fetch: async ({ request, h }) => {
-      return myService.getUser()
+      return service.getUser()
     }
   },
   {
-    name: item.greeting,
+    name: item.toy,
     lifespan: Can.lifespan.request,
     fetch: async ({ request, h }) => {
       const user = await Can.from(request).get(item.user)
-      return myService.getGreeting(user)
+      return service.getFavouriteToy(user.isUserACat)
     }
   },
   {
-    name: item.question,
+    name: item.food,
     lifespan: Can.lifespan.request,
     fetch: async ({ request, h }) => {
       const user = await Can.from(request).get(item.user)
-      return myService.getQuestion(user)
+      return service.getFavouriteFood(user.isUserACat)
     }
   }
 ]

@@ -1,14 +1,24 @@
 
-const myService = {
-  getUser: async () => new Promise(resolve => {
-    setTimeout(() => { resolve('Bill Shoggins') }, 1000)
-  }),
-  getGreeting: async (user) => new Promise(resolve => {
-    setTimeout(() => { resolve(`Hi ${user}`) }, 1000)
-  }),
-  getQuestion: async (user) => new Promise(resolve => {
-    setTimeout(() => { resolve(`I hope you are well ${user}?`) }, 1000)
-  })
-}
+// We fake a request using a timeout
+const getUser = () => new Promise(resolve => {
+  setTimeout(() => {
+    resolve({
+      name: 'Stimpy',
+      isUserACat: true
+    })
+  }, 1000)
+})
 
-module.exports = myService
+const getFavouriteFood = (isUserACat) => new Promise(resolve => {
+  setTimeout(() => { resolve(isUserACat ? 'Fiiiiish' : 'Bone!') }, 1000)
+})
+
+const getFavouriteToy = (isUserACat) => new Promise(resolve => {
+  setTimeout(() => { resolve(isUserACat ? `Ball O' Wool` : 'Stamp Collection') }, 1000)
+})
+
+module.exports = {
+  getUser,
+  getFavouriteFood,
+  getFavouriteToy
+}

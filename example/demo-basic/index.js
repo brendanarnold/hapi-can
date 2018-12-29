@@ -1,8 +1,8 @@
 
 const Hapi = require('hapi')
 const Can = require('hapi-can')
-const { item, cannedItems } = require('./canned-data')
-const service = require('./service')
+const data = require('./data')
+const { cannedItems } = require('./canned-service')
 
 const server = Hapi.server({
   host: 'localhost',
@@ -36,13 +36,12 @@ const start = async () => {
       path: '/canned',
       handler: async (request, h) => {
         const startTime = (new Date()).getTime()
-        const greeting = await Can.from(request).get(item.greeting)
-        const question = await Can.from(request).get(item.question)
-        const user = await Can.from(request).get(item.user)
+        const greeting = await data.canned.getGreeting(request)
+        const favouriteThings = await data.canned.getFavouriteThings(request)
         const elapsed = (new Date()).getTime() - startTime
         return `
 <p>${greeting}</p>
-<p>${question}</p>
+<p>${favouriteThings.food} and ${favouriteThings.toy}</p>
 <p>Time taken ${elapsed}ms</p>`
       }
     },
@@ -51,13 +50,12 @@ const start = async () => {
       path: '/non-canned',
       handler: async (request, h) => {
         const startTime = (new Date()).getTime()
-        const user = await service.getUser()
-        const greeting = await service.getGreeting(user)
-        const question = await service.getQuestion(user)
+        const greeting = await data.standard.getGreeting()
+        const favouriteThings = await data.standard.getFavouriteThings()
         const elapsed = (new Date()).getTime() - startTime
         return `
 <p>${greeting}</p>
-<p>${question}</p>
+<p>${favouriteThings.food} and ${favouriteThings.toy}</p>
 <p>Time taken ${elapsed}ms</p>`
       }
     }
