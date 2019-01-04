@@ -6,7 +6,7 @@ const _buildBaseToolkit = () => ({
 })
 
 const _buildBaseServer = () => ({
-  plugins: {
+  app: {
     ['hapi-can']: {
       cache: {},
       repositoryItems: {
