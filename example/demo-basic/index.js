@@ -6,7 +6,7 @@ const { cannedItems } = require('./canned-service')
 
 const server = Hapi.server({
   host: 'localhost',
-  port: 8000
+  port: 8080
 })
 
 const start = async () => {
