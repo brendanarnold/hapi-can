@@ -9,16 +9,6 @@ const getUser = () => new Promise(resolve => {
   }, 1000)
 })
 
-const getFavouriteFood = (isUserACat) => new Promise(resolve => {
-  setTimeout(() => { resolve(isUserACat ? 'Fiiiiish' : 'Bone!') }, 1000)
-})
-
-const getFavouriteToy = (isUserACat) => new Promise(resolve => {
-  setTimeout(() => { resolve(isUserACat ? `Ball O' Wool` : 'Stamp Collection') }, 1000)
-})
-
 module.exports = {
-  getUser,
-  getFavouriteFood,
-  getFavouriteToy
+  getUser
 }

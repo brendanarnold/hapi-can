@@ -16,7 +16,7 @@ const start = async () => {
       path: '/',
       handler: async (request, h) => {
         const startTime = (new Date()).getTime()
-        const user = await data.getUser(server)
+        const user = await data.getUser(request)
         const elapsed = (new Date()).getTime() - startTime
         return `
 <html>
@@ -25,6 +25,7 @@ const start = async () => {
   </head>
   <body>
   <p>Hey ${user.name}!</p>
+  <p>This cache invalidates every 5 seconds, try hitting refresh a few times ...</p>
   <p>Time taken ${elapsed}ms</p>
   </body>
 </html>`
