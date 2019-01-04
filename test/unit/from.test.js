@@ -7,7 +7,7 @@ const { _buildBaseServer } = require('../_testUtils')
 const { from } = require('../../lib/from')
 
 describe('Can.from()', async () => {
-  describe('Given a server like object', async () => {
+  describe('Given a request like object', async () => {
     it('should return an object', async () => {
       const res = from(_buildBaseServer())
       expect(res).to.be.object()
@@ -47,10 +47,10 @@ describe('Can.from()', async () => {
 
     describe(`and lastUpdated() is called on the result`, async () => {
       describe('and the cache has not yet been fetched', async () => {
-        describe('and the value has not been set explicitly with set()', async() => {
+        describe('and the value has not been set explicitly with set()', async () => {
           it('should return undefined')
         })
-        describe('and the value has been set explicitly with set()', async() => {
+        describe('and the value has been set explicitly with set()', async () => {
           it('should return the UNIX timestamp for the update time')
         })
       })
@@ -58,7 +58,7 @@ describe('Can.from()', async () => {
         describe('and the value has not been set explicitly with set()', async () => {
           it('should return the UNIX timestamp for the update time')
         })
-        describe('and the value has been set explicitly with set()', async() => {
+        describe('and the value has been set explicitly with set()', async () => {
           it('should return the UNIX timestamp for the latest of the two')
         })
       })
@@ -92,7 +92,6 @@ describe('Can.from()', async () => {
           it('should return the value named in the parameter for invalidate()')
         })
       })
-      
     })
 
     describe('and fetchTime() is called on the result', async () => {
@@ -127,9 +126,5 @@ describe('Can.from()', async () => {
       it('should return an object')
       it('should return correct statistics for the current cache as it currently is')
     })
-  })
-
-  describe('Given a request like object', async () => {
-    it('should return an object')
   })
 })

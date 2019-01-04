@@ -1,9 +1,9 @@
-const { expect } = require('code')
+// const { expect } = require('code')
 const { describe, it } = exports.lab = require('lab').script()
-const { _buildBaseServer } = require('../_testUtils')
+// const { _buildBaseServer } = require('../_testUtils')
 
 // System under test
-const register = require('../../lib/register')
+// const register = require('../../lib/register')
 
 describe('Can.register()', async () => {
   describe('Given that an invalid register object is passed in', async () => {

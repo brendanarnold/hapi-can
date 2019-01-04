@@ -1,8 +1,7 @@
-const { expect } = require('code')
+// const { expect } = require('code')
 const { describe, it } = exports.lab = require('lab').script()
 
 describe('Can.plugin', async () => {
-
   describe(`onPreStart`, async () => {
     it(`should attach the server cache to server.plugins['hapi-can']`)
     it(`should attach the repositoryItems to server.plugins['hapi-can']`)
